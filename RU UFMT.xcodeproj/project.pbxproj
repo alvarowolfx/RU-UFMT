@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		022798EFE1414E0082F460E5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CD3420EE7B941ACB7CF6F12 /* libPods.a */; };
+		ED1A4F5E17BB469F0049A8E6 /* ic_launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = ED1A4F5D17BB469F0049A8E6 /* ic_launcher.png */; };
 		EDC00B9317BB018D0048740F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC00B9217BB018D0048740F /* UIKit.framework */; };
 		EDC00B9517BB018D0048740F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC00B9417BB018D0048740F /* Foundation.framework */; };
 		EDC00B9717BB018D0048740F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC00B9617BB018D0048740F /* CoreGraphics.framework */; };
@@ -19,9 +21,17 @@
 		EDC00BAC17BB018D0048740F /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDC00BAA17BB018D0048740F /* MainStoryboard_iPhone.storyboard */; };
 		EDC00BAF17BB018D0048740F /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDC00BAD17BB018D0048740F /* MainStoryboard_iPad.storyboard */; };
 		EDC00BB217BB018D0048740F /* RUUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC00BB117BB018D0048740F /* RUUViewController.m */; };
+		EDC00BBB17BB02B60048740F /* RUUCardapio.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC00BB917BB01B70048740F /* RUUCardapio.m */; };
+		EDC00BC217BB0BCC0048740F /* leather-background.png in Resources */ = {isa = PBXBuildFile; fileRef = EDC00BC017BB0BCC0048740F /* leather-background.png */; };
+		EDC00BC317BB0BCC0048740F /* leather-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDC00BC117BB0BCC0048740F /* leather-background@2x.png */; };
+		EDC00BC617BB29E40048740F /* RUUScrapingCardapioTask.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC00BC517BB29E40048740F /* RUUScrapingCardapioTask.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8CD3420EE7B941ACB7CF6F12 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEBEB33BBE78460DB20535ED /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		ED1A4F5C17BB45810049A8E6 /* ios_development.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = ios_development.cer; sourceTree = "<group>"; };
+		ED1A4F5D17BB469F0049A8E6 /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		EDC00B8F17BB018D0048740F /* RU UFMT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RU UFMT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDC00B9217BB018D0048740F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EDC00B9417BB018D0048740F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -39,6 +49,12 @@
 		EDC00BAE17BB018D0048740F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		EDC00BB017BB018D0048740F /* RUUViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RUUViewController.h; sourceTree = "<group>"; };
 		EDC00BB117BB018D0048740F /* RUUViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RUUViewController.m; sourceTree = "<group>"; };
+		EDC00BB817BB01B70048740F /* RUUCardapio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RUUCardapio.h; sourceTree = "<group>"; };
+		EDC00BB917BB01B70048740F /* RUUCardapio.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RUUCardapio.m; sourceTree = "<group>"; };
+		EDC00BC017BB0BCC0048740F /* leather-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leather-background.png"; sourceTree = "<group>"; };
+		EDC00BC117BB0BCC0048740F /* leather-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leather-background@2x.png"; sourceTree = "<group>"; };
+		EDC00BC417BB29E40048740F /* RUUScrapingCardapioTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RUUScrapingCardapioTask.h; sourceTree = "<group>"; };
+		EDC00BC517BB29E40048740F /* RUUScrapingCardapioTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RUUScrapingCardapioTask.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +65,7 @@
 				EDC00B9317BB018D0048740F /* UIKit.framework in Frameworks */,
 				EDC00B9517BB018D0048740F /* Foundation.framework in Frameworks */,
 				EDC00B9717BB018D0048740F /* CoreGraphics.framework in Frameworks */,
+				022798EFE1414E0082F460E5 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +78,7 @@
 				EDC00B9817BB018D0048740F /* RU UFMT */,
 				EDC00B9117BB018D0048740F /* Frameworks */,
 				EDC00B9017BB018D0048740F /* Products */,
+				BEBEB33BBE78460DB20535ED /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,6 +96,7 @@
 				EDC00B9217BB018D0048740F /* UIKit.framework */,
 				EDC00B9417BB018D0048740F /* Foundation.framework */,
 				EDC00B9617BB018D0048740F /* CoreGraphics.framework */,
+				8CD3420EE7B941ACB7CF6F12 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -85,12 +104,18 @@
 		EDC00B9817BB018D0048740F /* RU UFMT */ = {
 			isa = PBXGroup;
 			children = (
+				EDC00BC017BB0BCC0048740F /* leather-background.png */,
+				EDC00BC117BB0BCC0048740F /* leather-background@2x.png */,
 				EDC00BA117BB018D0048740F /* RUUAppDelegate.h */,
 				EDC00BA217BB018D0048740F /* RUUAppDelegate.m */,
 				EDC00BAA17BB018D0048740F /* MainStoryboard_iPhone.storyboard */,
 				EDC00BAD17BB018D0048740F /* MainStoryboard_iPad.storyboard */,
 				EDC00BB017BB018D0048740F /* RUUViewController.h */,
 				EDC00BB117BB018D0048740F /* RUUViewController.m */,
+				EDC00BC417BB29E40048740F /* RUUScrapingCardapioTask.h */,
+				EDC00BC517BB29E40048740F /* RUUScrapingCardapioTask.m */,
+				EDC00BB817BB01B70048740F /* RUUCardapio.h */,
+				EDC00BB917BB01B70048740F /* RUUCardapio.m */,
 				EDC00B9917BB018D0048740F /* Supporting Files */,
 			);
 			path = "RU UFMT";
@@ -99,6 +124,8 @@
 		EDC00B9917BB018D0048740F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ED1A4F5D17BB469F0049A8E6 /* ic_launcher.png */,
+				ED1A4F5C17BB45810049A8E6 /* ios_development.cer */,
 				EDC00B9A17BB018D0048740F /* RU UFMT-Info.plist */,
 				EDC00B9B17BB018D0048740F /* InfoPlist.strings */,
 				EDC00B9E17BB018D0048740F /* main.m */,
@@ -117,9 +144,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EDC00BB517BB018D0048740F /* Build configuration list for PBXNativeTarget "RU UFMT" */;
 			buildPhases = (
+				798BDF1A348A4EC2ADE42287 /* Check Pods Manifest.lock */,
 				EDC00B8B17BB018D0048740F /* Sources */,
 				EDC00B8C17BB018D0048740F /* Frameworks */,
 				EDC00B8D17BB018D0048740F /* Resources */,
+				A20B3682EF97471C84F6DB2D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -139,6 +168,11 @@
 				CLASSPREFIX = RUU;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = UFMT;
+				TargetAttributes = {
+					EDC00B8E17BB018D0048740F = {
+						DevelopmentTeam = 977XK66837;
+					};
+				};
 			};
 			buildConfigurationList = EDC00B8A17BB018D0048740F /* Build configuration list for PBXProject "RU UFMT" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -163,24 +197,62 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDC00B9D17BB018D0048740F /* InfoPlist.strings in Resources */,
+				ED1A4F5E17BB469F0049A8E6 /* ic_launcher.png in Resources */,
 				EDC00BA517BB018D0048740F /* Default.png in Resources */,
 				EDC00BA717BB018D0048740F /* Default@2x.png in Resources */,
 				EDC00BA917BB018D0048740F /* Default-568h@2x.png in Resources */,
 				EDC00BAC17BB018D0048740F /* MainStoryboard_iPhone.storyboard in Resources */,
 				EDC00BAF17BB018D0048740F /* MainStoryboard_iPad.storyboard in Resources */,
+				EDC00BC217BB0BCC0048740F /* leather-background.png in Resources */,
+				EDC00BC317BB0BCC0048740F /* leather-background@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		798BDF1A348A4EC2ADE42287 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A20B3682EF97471C84F6DB2D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EDC00B8B17BB018D0048740F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDC00BBB17BB02B60048740F /* RUUCardapio.m in Sources */,
 				EDC00B9F17BB018D0048740F /* main.m in Sources */,
 				EDC00BA317BB018D0048740F /* RUUAppDelegate.m in Sources */,
 				EDC00BB217BB018D0048740F /* RUUViewController.m in Sources */,
+				EDC00BC617BB29E40048740F /* RUUScrapingCardapioTask.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +346,9 @@
 		};
 		EDC00BB617BB018D0048740F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEBEB33BBE78460DB20535ED /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RU UFMT/RU UFMT-Prefix.pch";
 				INFOPLIST_FILE = "RU UFMT/RU UFMT-Info.plist";
@@ -285,7 +359,9 @@
 		};
 		EDC00BB717BB018D0048740F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEBEB33BBE78460DB20535ED /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RU UFMT/RU UFMT-Prefix.pch";
 				INFOPLIST_FILE = "RU UFMT/RU UFMT-Info.plist";
@@ -313,6 +389,7 @@
 				EDC00BB717BB018D0048740F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

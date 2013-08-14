@@ -1,13 +1,16 @@
 //
 //  RUUViewController.h
-//  RU UFMT
+//  RUUFMT
 //
-//  Created by Alvaro Viebrantz on 13/08/13.
+//  Created by Alvaro Viebrantz on 12/08/13.
 //  Copyright (c) 2013 UFMT. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface RUUViewController : UIViewController
+@interface RUUViewController : UITableViewController
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segControlCardapio;
+- (IBAction)segControlOnChange:(UISegmentedControl *)sender;
 
 @end
