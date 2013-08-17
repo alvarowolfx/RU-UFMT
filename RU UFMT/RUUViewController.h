@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FlatUIKit/FUISegmentedControl.h>
 
 @interface RUUViewController : UITableViewController
 
-@property (weak, nonatomic) IBOutlet UISegmentedControl *segControlCardapio;
-- (IBAction)segControlOnChange:(UISegmentedControl *)sender;
+@property (weak, nonatomic) IBOutlet FUISegmentedControl *segControlCardapio;
+- (IBAction)segControlOnChange:(FUISegmentedControl *)sender;
 
 @end

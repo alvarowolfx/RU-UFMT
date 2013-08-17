@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		022798EFE1414E0082F460E5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CD3420EE7B941ACB7CF6F12 /* libPods.a */; };
 		ED1A4F5E17BB469F0049A8E6 /* ic_launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = ED1A4F5D17BB469F0049A8E6 /* ic_launcher.png */; };
+		ED1C07FC17BF06BB00356916 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = ED1C07FA17BF06BB00356916 /* Icon-Small.png */; };
+		ED1C07FD17BF06BB00356916 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED1C07FB17BF06BB00356916 /* Icon-Small@2x.png */; };
+		ED1C080117BF06EC00356916 /* Icon-120@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED1C080017BF06EC00356916 /* Icon-120@2x.png */; };
+		ED1C080317BF07FD00356916 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1C080217BF07FD00356916 /* SystemConfiguration.framework */; };
+		ED1C080517BF080500356916 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1C080417BF080500356916 /* MobileCoreServices.framework */; };
+		ED57E84117BF054F00D73FA8 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ED57E84017BF054F00D73FA8 /* Icon.png */; };
+		ED57E84317BF055200D73FA8 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED57E84217BF055200D73FA8 /* Icon@2x.png */; };
+		ED57E84517BF057300D73FA8 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = ED57E84417BF057300D73FA8 /* Icon-72.png */; };
+		ED57E84717BF057600D73FA8 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED57E84617BF057600D73FA8 /* Icon-72@2x.png */; };
+		EDBF4C7417BBF5FD00A0C3EB /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDBF4C7317BBF5FD00A0C3EB /* iAd.framework */; };
 		EDC00B9317BB018D0048740F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC00B9217BB018D0048740F /* UIKit.framework */; };
 		EDC00B9517BB018D0048740F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC00B9417BB018D0048740F /* Foundation.framework */; };
 		EDC00B9717BB018D0048740F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC00B9617BB018D0048740F /* CoreGraphics.framework */; };
@@ -32,6 +42,17 @@
 		BEBEB33BBE78460DB20535ED /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		ED1A4F5C17BB45810049A8E6 /* ios_development.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = ios_development.cer; sourceTree = "<group>"; };
 		ED1A4F5D17BB469F0049A8E6 /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
+		ED1C07FA17BF06BB00356916 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "icon/ios7/Icon-Small.png"; sourceTree = "<group>"; };
+		ED1C07FB17BF06BB00356916 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "icon/ios7/Icon-Small@2x.png"; sourceTree = "<group>"; };
+		ED1C080017BF06EC00356916 /* Icon-120@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-120@2x.png"; path = "icon/ios7/Icon-120@2x.png"; sourceTree = "<group>"; };
+		ED1C080217BF07FD00356916 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		ED1C080417BF080500356916 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		ED57E84017BF054F00D73FA8 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		ED57E84217BF055200D73FA8 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		ED57E84417BF057300D73FA8 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		ED57E84617BF057600D73FA8 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+		EDA71BD017BE92DA007392B4 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		EDBF4C7317BBF5FD00A0C3EB /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		EDC00B8F17BB018D0048740F /* RU UFMT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RU UFMT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDC00B9217BB018D0048740F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EDC00B9417BB018D0048740F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -62,6 +83,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED1C080517BF080500356916 /* MobileCoreServices.framework in Frameworks */,
+				ED1C080317BF07FD00356916 /* SystemConfiguration.framework in Frameworks */,
+				EDBF4C7417BBF5FD00A0C3EB /* iAd.framework in Frameworks */,
 				EDC00B9317BB018D0048740F /* UIKit.framework in Frameworks */,
 				EDC00B9517BB018D0048740F /* Foundation.framework in Frameworks */,
 				EDC00B9717BB018D0048740F /* CoreGraphics.framework in Frameworks */,
@@ -75,6 +99,13 @@
 		EDC00B8617BB018D0048740F = {
 			isa = PBXGroup;
 			children = (
+				ED1C080017BF06EC00356916 /* Icon-120@2x.png */,
+				ED1C07FA17BF06BB00356916 /* Icon-Small.png */,
+				ED1C07FB17BF06BB00356916 /* Icon-Small@2x.png */,
+				ED57E84617BF057600D73FA8 /* Icon-72@2x.png */,
+				ED57E84417BF057300D73FA8 /* Icon-72.png */,
+				ED57E84217BF055200D73FA8 /* Icon@2x.png */,
+				ED57E84017BF054F00D73FA8 /* Icon.png */,
 				EDC00B9817BB018D0048740F /* RU UFMT */,
 				EDC00B9117BB018D0048740F /* Frameworks */,
 				EDC00B9017BB018D0048740F /* Products */,
@@ -93,6 +124,10 @@
 		EDC00B9117BB018D0048740F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED1C080417BF080500356916 /* MobileCoreServices.framework */,
+				ED1C080217BF07FD00356916 /* SystemConfiguration.framework */,
+				EDA71BD017BE92DA007392B4 /* CoreImage.framework */,
+				EDBF4C7317BBF5FD00A0C3EB /* iAd.framework */,
 				EDC00B9217BB018D0048740F /* UIKit.framework */,
 				EDC00B9417BB018D0048740F /* Foundation.framework */,
 				EDC00B9617BB018D0048740F /* CoreGraphics.framework */,
@@ -201,10 +236,17 @@
 				EDC00BA517BB018D0048740F /* Default.png in Resources */,
 				EDC00BA717BB018D0048740F /* Default@2x.png in Resources */,
 				EDC00BA917BB018D0048740F /* Default-568h@2x.png in Resources */,
+				ED1C080117BF06EC00356916 /* Icon-120@2x.png in Resources */,
 				EDC00BAC17BB018D0048740F /* MainStoryboard_iPhone.storyboard in Resources */,
 				EDC00BAF17BB018D0048740F /* MainStoryboard_iPad.storyboard in Resources */,
 				EDC00BC217BB0BCC0048740F /* leather-background.png in Resources */,
+				ED1C07FC17BF06BB00356916 /* Icon-Small.png in Resources */,
 				EDC00BC317BB0BCC0048740F /* leather-background@2x.png in Resources */,
+				ED57E84117BF054F00D73FA8 /* Icon.png in Resources */,
+				ED57E84317BF055200D73FA8 /* Icon@2x.png in Resources */,
+				ED1C07FD17BF06BB00356916 /* Icon-Small@2x.png in Resources */,
+				ED57E84517BF057300D73FA8 /* Icon-72.png in Resources */,
+				ED57E84717BF057600D73FA8 /* Icon-72@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +395,7 @@
 				GCC_PREFIX_HEADER = "RU UFMT/RU UFMT-Prefix.pch";
 				INFOPLIST_FILE = "RU UFMT/RU UFMT-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -366,6 +409,7 @@
 				GCC_PREFIX_HEADER = "RU UFMT/RU UFMT-Prefix.pch";
 				INFOPLIST_FILE = "RU UFMT/RU UFMT-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

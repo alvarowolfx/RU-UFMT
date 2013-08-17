@@ -40,22 +40,35 @@
         NSString *ufmtXpathQueryString = @"//div[@id='secao']/p/strong/span/span";
         NSArray *ufmtNodes = [ufmtParser searchWithXPathQuery:ufmtXpathQueryString];
         
+        NSError* error = nil;
+        NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:@".*([0-9]{1,2}[/][0-9]{1,2}[/][0-9]{2,4}).*"            options:0 error:&error];
+        
+        NSDate *dateFromSite = nil;
         for (TFHppleElement *element in ufmtNodes) {
+            NSString *searchedString = [element text];
+            NSArray *matches = [regex matchesInString:searchedString options:0 range:NSMakeRange(0, [searchedString length])];
+            if([matches count] > 0){
+                int idx = [searchedString rangeOfCharacterFromSet:[NSCharacterSet letterCharacterSet]].location;
+                NSString* matchText = [searchedString substringWithRange:NSMakeRange(0, idx)];
+                NSDateFormatter *df = [[NSDateFormatter alloc] init];
+                [df setDateFormat:@"dd/MM/yy"];
+                dateFromSite = [df dateFromString:matchText];
+                //NSLog(@" %@, %@ " ,searchedString,matchText);
+
+            }
             
-            NSLog(@" %@ " ,[element text]);
-            
-        }
+        }        
         ufmtNodes = [ufmtParser searchWithXPathQuery:@"//div[@id='secao']//table"];
         
         if([ufmtNodes count] >= 2){
-            NSLog(@" pegou tabelas");
+            //NSLog(@" pegou tabelas");
             RUUCardapio *c1 = [self_ cardapioFromTable:[ufmtNodes objectAtIndex:0]];
             RUUCardapio *c2 = [self_ cardapioFromTable:[ufmtNodes objectAtIndex:1]];
             if(self.successBlock != NULL){
-                NSLog(@" chamndo sucesso !!!");
-                self.successBlock(c1,c2,nil);
+                //NSLog(@" chamndo sucesso !!!");
+                self.successBlock(c1,c2,dateFromSite);
             }else{
-                NSLog(@" sucesso não setado =/ ");
+                //NSLog(@" sucesso não setado =/ ");
             }
             
         }else{
