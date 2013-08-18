@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RUUCardapio : NSObject{
+@interface RUUCardapio : NSObject <NSCoding>{
     NSMutableArray *sections;
     NSMutableDictionary *itens;
 }

@@ -21,6 +21,7 @@
     RUUCardapio *cardapioDinner;
     RUUCardapio *actualCardapio;
     NSDate *lastDate;
+    NSDate *cardapioDate;
 }
 
 @end
@@ -68,7 +69,7 @@
     self.tableView.separatorColor = [UIColor whiteColor];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
-    [self setRefreshText:@"Não Atualizado"];
+    [self updateRefreshText:NO];
     [self.refreshControl addTarget:self
                          action:@selector(refreshControlActivated)
                          forControlEvents:UIControlEventValueChanged];
@@ -144,15 +145,17 @@
 }
 
 -(void) refreshControlActivated{
-    [self setRefreshText:@"Atualizando"];
+    [self setUpdatingState];
     RUUScrapingCardapioTask *task = [[RUUScrapingCardapioTask alloc] init];
     [task setSuccesBlock:^(RUUCardapio *cLunch,RUUCardapio *cDinner,NSDate *date){
         cardapioLunch = cLunch;
         cardapioDinner = cDinner;
         
         lastDate = [NSDate new];
-        [self setRefreshText:@"Atualizado" withDate:date];
+        cardapioDate = date;
+        [self updateRefreshText:YES];
         [self segControlOnChange:self.segControlCardapio];
+        
         [self.refreshControl endRefreshing];
     } failure:^(NSError *error) {
         
@@ -173,28 +176,46 @@
         alert.defaultButtonFont = [UIFont boldFlatFontOfSize:16];
         alert.defaultButtonTitleColor = [UIColor cloudsColor];
         
-        [alert show];
-        if(lastDate == nil)
-            [self setRefreshText:@"Não atualizado"];
-        else
-            [self setRefreshText:@"Ultima Atualização" withDate:lastDate];
+        [alert show];        
+        [self updateRefreshText:NO];
         
         [self.refreshControl endRefreshing];
     }];
     [task start];
 }
 
--(void) setRefreshText:(NSString *) text withDate:(NSDate *) date{
+-(void) setUpdatingState{
+    
+    NSString *text = @"Atualizando";
+    NSMutableAttributedString *attString=[[NSMutableAttributedString alloc] initWithString:text];
+    NSInteger stringLength= [text length];    
+    UIColor *black =[UIColor midnightBlueColor];
+    UIFont *font =[UIFont boldFlatFontOfSize:14.0f];
+    [attString addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, stringLength)];
+    [attString addAttribute:NSForegroundColorAttributeName value:black range:NSMakeRange(0, stringLength)];
+    [self.refreshControl setAttributedTitle:attString];
+
+}
+
+-(void) updateRefreshText:(BOOL) updated{
     
     NSString *output = @"";
+    NSString *text = nil;
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    if(lastDate != nil){
+    if(updated){
+        text = @"Atualizado";        
         [df setDateFormat:@"   dd/MM/yyyy HH:mm"];
         output = [text stringByAppendingString:[df stringFromDate:lastDate]];
     }else{
-        output = text;
+        if(lastDate != nil){
+            text = @"Ultima Atualização";
+            [df setDateFormat:@"   dd/MM/yyyy HH:mm"];
+            output = [text stringByAppendingString:[df stringFromDate:lastDate]];
+        }else{
+            text = @"Não Atualizado";
+            output = text;
+        }
     }
-    
     NSMutableAttributedString *attString=[[NSMutableAttributedString alloc] initWithString:output];
     NSInteger stringLength= [text length];
     
@@ -202,16 +223,15 @@
     UIFont *font =[UIFont boldFlatFontOfSize:14.0f];
     [attString addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, stringLength)];
     [attString addAttribute:NSForegroundColorAttributeName value:black range:NSMakeRange(0, stringLength)];
-
-    if(date != nil){
+    
+    if(cardapioDate != nil){
         [df setDateFormat:@" dd/MM EEEE"];
-        [self.navigationItem setTitle:[NSString stringWithFormat:@"RU UFMT - %@",[df stringFromDate:date]]];
+        [self.navigationItem setTitle:[NSString stringWithFormat:@"RU UFMT - %@",[df stringFromDate:cardapioDate]]];
+    }else{
+        [self.navigationItem setTitle:@"RU UFMT"];
     }
     [self.refreshControl setAttributedTitle:attString];
-}
-
--(void) setRefreshText:(NSString *) text{
-    [self setRefreshText:text withDate:nil];
+    
 }
 
 - (IBAction)segControlOnChange:(UISegmentedControl *)sender {
@@ -223,6 +243,32 @@
     }
     [self.tableView reloadData];
     [self.tableView setContentOffset:CGPointZero animated:YES];
+}
+
+-(void)encodeRestorableStateWithCoder:(NSCoder *)coder{
+    NSLog(@"Encoding");
+    [super encodeRestorableStateWithCoder:coder];
+    
+    [coder encodeObject:cardapioLunch forKey:@"cardapioLunch"];
+    [coder encodeObject:cardapioDinner forKey:@"cardapioDinner"];
+    [coder encodeObject:lastDate forKey:@"lastDate"];
+    [coder encodeObject:cardapioDate forKey:@"cardapioDate"];
+    
+}
+
+-(void)decodeRestorableStateWithCoder:(NSCoder *)coder{
+    NSLog(@"Decoding");
+    [super decodeRestorableStateWithCoder:coder];
+    
+    cardapioLunch = [coder decodeObjectForKey:@"cardapioLunch"];
+    cardapioDinner = [coder decodeObjectForKey:@"cardapioDinner"];
+    lastDate = [coder decodeObjectForKey:@"lastDate"];
+    cardapioDate = [coder decodeObjectForKey:@"cardapioDate"];
+    
+    NSLog(@" %@ ",[cardapioLunch sectionAtIndex:0]);
+    
+    [self updateRefreshText:NO];
+    [self segControlOnChange:self.segControlCardapio];
 }
 
 - (void)didReceiveMemoryWarning

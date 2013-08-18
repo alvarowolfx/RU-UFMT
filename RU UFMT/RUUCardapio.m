@@ -20,6 +20,20 @@
     return self;
 }
 
+-(void)encodeWithCoder:(NSCoder *)aCoder{
+    [aCoder encodeObject:sections forKey:@"sections"];
+    [aCoder encodeObject:itens forKey:@"itens"];
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder{
+    self = [super init];
+    if(self){
+        sections = [aDecoder decodeObjectForKey:@"sections"];
+        itens = [aDecoder decodeObjectForKey:@"itens"];
+    }
+    
+    return self;
+}
 
 -(void) addSection:(NSString *) section withItens:(NSArray *) sectionItens{
     

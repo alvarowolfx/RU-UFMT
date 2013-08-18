@@ -13,34 +13,17 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    
 #ifdef __IPHONE_7_0
-    application.statusBarStyle = UIStatusBarStyleLightContent;
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 #endif
     return YES;
 }
-							
-- (void)applicationWillResignActive:(UIApplication *)application
-{
 
+-(BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder{
+    return YES;
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-
+-(BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder{
+    return YES;
 }
 
 @end
