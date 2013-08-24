@@ -246,7 +246,7 @@
 }
 
 -(void)encodeRestorableStateWithCoder:(NSCoder *)coder{
-    NSLog(@"Encoding");
+    //NSLog(@"Encoding");
     [super encodeRestorableStateWithCoder:coder];
     
     [coder encodeObject:cardapioLunch forKey:@"cardapioLunch"];
@@ -257,7 +257,7 @@
 }
 
 -(void)decodeRestorableStateWithCoder:(NSCoder *)coder{
-    NSLog(@"Decoding");
+    //NSLog(@"Decoding");
     [super decodeRestorableStateWithCoder:coder];
     
     cardapioLunch = [coder decodeObjectForKey:@"cardapioLunch"];
@@ -265,7 +265,7 @@
     lastDate = [coder decodeObjectForKey:@"lastDate"];
     cardapioDate = [coder decodeObjectForKey:@"cardapioDate"];
     
-    NSLog(@" %@ ",[cardapioLunch sectionAtIndex:0]);
+    //NSLog(@" %@ ",[cardapioLunch sectionAtIndex:0]);
     
     [self updateRefreshText:NO];
     [self segControlOnChange:self.segControlCardapio];
