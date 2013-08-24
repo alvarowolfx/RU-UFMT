@@ -9,6 +9,7 @@
 #import "RUUViewController.h"
 #import "RUUCardapio.h"
 #import "RUUScrapingCardapioTask.h"
+#import <UITableView-NXEmptyView/UITableView+NXEmptyView.h>
 #import <FlatUIKit/UIToolbar+FlatUI.h>
 #import <FlatUIKit/UINavigationBar+FlatUI.h>
 #import <FlatUIKit/UITableViewCell+FlatUI.h>
@@ -31,8 +32,8 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    
-    self.view = [self tableView];
+
+    //self.view = [self tableView];
     cardapioLunch = [[RUUCardapio alloc] init];
     cardapioDinner = [[RUUCardapio alloc] init];
     lastDate = nil;
@@ -47,16 +48,17 @@
     [cardapioDinner addSection:@"Acompanhamento" withItens:@[@"Macarrão",@"Batata"]];
     [cardapioDinner addSection:@"Sobremesa" withItens:@[@"Pudim"]];
     */
+    self.tableView.nxEV_hideSeparatorLinesWheyShowingEmptyView = YES;
+    self.tableView.nxEV_emptyView = [self viewForEmptyTable];
      
     NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
                                                [UIColor cloudsColor],UITextAttributeTextColor, nil];
     self.navigationController.navigationBar.titleTextAttributes = navbarTitleTextAttributes;
     [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor peterRiverColor]];
-    
-    
     [self.navigationController.toolbar configureFlatToolbarWithColor:[UIColor peterRiverColor]];
-        
-    self.segControlCardapio.selectedFont = [UIFont boldFlatFontOfSize:16];
+    
+    
+    self.segControlCardapio.selectedFont = [UIFont boldFlatFontOfSize:14];
     self.segControlCardapio.selectedFontColor = [UIColor cloudsColor];
     self.segControlCardapio.deselectedFont = [UIFont flatFontOfSize:16];
     self.segControlCardapio.deselectedFontColor = [UIColor cloudsColor];
@@ -75,8 +77,30 @@
                          forControlEvents:UIControlEventValueChanged];
     [self.refreshControl setTintColor:[UIColor peterRiverColor]];
     
+    [self createAdBannerView];
+    
+}
+-(UIView *) viewForEmptyTable{
+    
+    UILabel *label = [[UILabel alloc] init];
+    label.font = [UIFont boldFlatFontOfSize:18];
+    label.frame = CGRectMake(40, 80, 240, 240);
+    label.backgroundColor = [UIColor cloudsColor];
+    label.textColor = [UIColor midnightBlueColor];
+    label.lineBreakMode = NSLineBreakByWordWrapping;
+    label.numberOfLines = 2;
+    label.text = @"Nenhum cardápio foi obtido.\nPuxe para atualizar.";
+    label.textAlignment = NSTextAlignmentCenter;
+    
+    UIView *view = [[UIView alloc]init];
+    [view addSubview:label];
+    view.backgroundColor = [UIColor cloudsColor];
+    view.frame = self.tableView.frame;
+    
+    return view;
 }
 
+#pragma mark UITableViewDelegate
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *CellIdentifier = @"RUUFMTCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -122,24 +146,26 @@
     return [actualCardapio sectionAtIndex:section];
 }
 
-
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     NSString *sectionTitle = [self tableView:tableView titleForHeaderInSection:section];
     if(sectionTitle == nil){
         return nil;
     }
+    UIColor *backColor = [UIColor blendedColorWithForegroundColor:[UIColor midnightBlueColor]
+                                                  backgroundColor:[UIColor peterRiverColor]
+                                                     percentBlend:0.2];
     
     UILabel *label = [[UILabel alloc] init];
     label.font = [UIFont boldFlatFontOfSize:18];
     label.frame = CGRectMake(8,8, 320, 20);
-    label.backgroundColor = [UIColor peterRiverColor];
+    label.backgroundColor = backColor;
     label.textColor = [UIColor cloudsColor];
     label.text = sectionTitle;
     label.textAlignment = NSTextAlignmentLeft;
     
     UIView *view = [[UIView alloc]init];
     [view addSubview:label];
-    view.backgroundColor = [UIColor peterRiverColor];
+    view.backgroundColor = backColor;
     
     return view;
 }
@@ -245,6 +271,7 @@
     [self.tableView setContentOffset:CGPointZero animated:YES];
 }
 
+#pragma mark State and Restoration
 -(void)encodeRestorableStateWithCoder:(NSCoder *)coder{
     //NSLog(@"Encoding");
     [super encodeRestorableStateWithCoder:coder];
@@ -270,7 +297,32 @@
     [self updateRefreshText:NO];
     [self segControlOnChange:self.segControlCardapio];
 }
+#pragma mark ADBannerViewDelegate
+- (void)createAdBannerView {
+    
+    _adBannerView = [[ADBannerView alloc] initWithFrame:CGRectZero];
+    [_adBannerView setDelegate:self];
+    
+}
 
+-(void)bannerViewDidLoadAd:(ADBannerView *)banner{
+    NSLog(@"Funcionou carregar o banner");
+    //if(!_adBannerViewIsVisible){
+        [UIView beginAnimations:@"animateAdBannerOn" context:NULL];
+        self.tableView.tableHeaderView = _adBannerView;
+        [UIView commitAnimations];
+    //    _adBannerViewIsVisible = YES;
+    //}
+}
+-(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
+    NSLog(@"Não funcionou carregar o banner");
+    //if(!_adBannerViewIsVisible){
+        [UIView beginAnimations:@"animateAdBannerOff" context:NULL];
+        self.tableView.tableHeaderView = nil;
+        [UIView commitAnimations];
+    //    _adBannerViewIsVisible = NO;
+    //}
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

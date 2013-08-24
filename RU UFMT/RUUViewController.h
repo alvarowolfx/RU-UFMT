@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <FlatUIKit/FUISegmentedControl.h>
+#import <iAd/iAd.h>
 
-@interface RUUViewController : UITableViewController
+@interface RUUViewController : UITableViewController <ADBannerViewDelegate>{
+    ADBannerView *_adBannerView;
+    BOOL _adBannerViewIsVisible;
+}
 
 @property (weak, nonatomic) IBOutlet FUISegmentedControl *segControlCardapio;
 - (IBAction)segControlOnChange:(FUISegmentedControl *)sender;
