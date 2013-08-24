@@ -60,10 +60,13 @@
         }        
         ufmtNodes = [ufmtParser searchWithXPathQuery:@"//div[@id='secao']//table"];
         
-        if([ufmtNodes count] >= 2){
+        if([ufmtNodes count] >= 1){
             //NSLog(@" pegou tabelas");
             RUUCardapio *c1 = [self_ cardapioFromTable:[ufmtNodes objectAtIndex:0]];
-            RUUCardapio *c2 = [self_ cardapioFromTable:[ufmtNodes objectAtIndex:1]];
+            RUUCardapio *c2 = [[RUUCardapio alloc] init];
+            if([ufmtNodes count] >= 2){
+                c2 = [self_ cardapioFromTable:[ufmtNodes objectAtIndex:1]];
+            }
             if(self.successBlock != NULL){
                 //NSLog(@" chamndo sucesso !!!");
                 self.successBlock(c1,c2,dateFromSite);
@@ -106,8 +109,17 @@
                 }
 
             }
+            if([[section stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]){
+                continue;
+            }
+            
             section = [[section lowercaseString] stringByReplacingCharactersInRange:NSMakeRange(0,1)
                                                      withString:[[section substringToIndex:1] uppercaseString]];
+            
+            if([[item stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]){
+                //[cardapio addSection:section withItens:[NSArray array]];
+                continue;
+            }
             
             item = [item stringByReplacingOccurrencesOfString:@" " withString:@""];
             item = [item stringByReplacingOccurrencesOfString:@"/" withString:@","];

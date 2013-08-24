@@ -47,16 +47,14 @@
     [cardapioDinner addSection:@"Salada" withItens:@[@"Couve-Flor",@"Beterraba"]];
     [cardapioDinner addSection:@"Acompanhamento" withItens:@[@"Macarrão",@"Batata"]];
     [cardapioDinner addSection:@"Sobremesa" withItens:@[@"Pudim"]];
-    */
-    self.tableView.nxEV_hideSeparatorLinesWheyShowingEmptyView = YES;
-    self.tableView.nxEV_emptyView = [self viewForEmptyTable];
-     
+    */     
     NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
                                                [UIColor cloudsColor],UITextAttributeTextColor, nil];
     self.navigationController.navigationBar.titleTextAttributes = navbarTitleTextAttributes;
     [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor peterRiverColor]];
     [self.navigationController.toolbar configureFlatToolbarWithColor:[UIColor peterRiverColor]];
     
+    self.tableView.nxEV_hideSeparatorLinesWheyShowingEmptyView = YES;
     
     self.segControlCardapio.selectedFont = [UIFont boldFlatFontOfSize:14];
     self.segControlCardapio.selectedFontColor = [UIColor cloudsColor];
@@ -80,7 +78,7 @@
     [self createAdBannerView];
     
 }
--(UIView *) viewForEmptyTable{
+-(UIView *) viewForEmptyTableWithText:(NSString *) text{
     
     UILabel *label = [[UILabel alloc] init];
     label.font = [UIFont boldFlatFontOfSize:18];
@@ -89,7 +87,7 @@
     label.textColor = [UIColor midnightBlueColor];
     label.lineBreakMode = NSLineBreakByWordWrapping;
     label.numberOfLines = 2;
-    label.text = @"Nenhum cardápio foi obtido.\nPuxe para atualizar.";
+    label.text = text;
     label.textAlignment = NSTextAlignmentCenter;
     
     UIView *view = [[UIView alloc]init];
@@ -157,7 +155,7 @@
     
     UILabel *label = [[UILabel alloc] init];
     label.font = [UIFont boldFlatFontOfSize:18];
-    label.frame = CGRectMake(8,8, 320, 20);
+    label.frame = CGRectMake(8,8, 320, 16);
     label.backgroundColor = backColor;
     label.textColor = [UIColor cloudsColor];
     label.text = sectionTitle;
@@ -232,14 +230,17 @@
         text = @"Atualizado";        
         [df setDateFormat:@"   dd/MM/yyyy HH:mm"];
         output = [text stringByAppendingString:[df stringFromDate:lastDate]];
+        self.tableView.nxEV_emptyView = [self viewForEmptyTableWithText:@"Nenhum cardápio para hoje."];
     }else{
         if(lastDate != nil){
             text = @"Ultima Atualização";
             [df setDateFormat:@"   dd/MM/yyyy HH:mm"];
             output = [text stringByAppendingString:[df stringFromDate:lastDate]];
+            self.tableView.nxEV_emptyView = [self viewForEmptyTableWithText:@"Nenhum cardápio para hoje."];
         }else{
             text = @"Não Atualizado";
             output = text;
+            self.tableView.nxEV_emptyView = [self viewForEmptyTableWithText:@"Nenhum cardápio foi obtido.\nPuxe para atualizar."];
         }
     }
     NSMutableAttributedString *attString=[[NSMutableAttributedString alloc] initWithString:output];
