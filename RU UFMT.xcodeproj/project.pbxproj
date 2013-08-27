@@ -18,6 +18,7 @@
 		ED4BECBD17C2EE8000E8ADD2 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = ED4BECBC17C2EE8000E8ADD2 /* Icon-120.png */; };
 		ED64121717C2EFA40039C81A /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ED64121317C2EF640039C81A /* Icon.png */; };
 		ED64121817C2EFA90039C81A /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED64121517C2EF710039C81A /* Icon@2x.png */; };
+		ED69568617CC580700E6FE37 /* RUUBackendScrapingCardapioTask.m in Sources */ = {isa = PBXBuildFile; fileRef = ED69568517CC580700E6FE37 /* RUUBackendScrapingCardapioTask.m */; };
 		EDBBB2A217C2EAF80008BD32 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EDBBB2A017C2EAF80008BD32 /* Icon.png */; };
 		EDBBB2A317C2EAF80008BD32 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDBBB2A117C2EAF80008BD32 /* Icon@2x.png */; };
 		EDBBB2A617C2EB0F0008BD32 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = EDBBB2A417C2EB0F0008BD32 /* Icon-40.png */; };
@@ -53,6 +54,8 @@
 		ED4BECBC17C2EE8000E8ADD2 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-120.png"; path = "icon 2/ios7/Icon-120.png"; sourceTree = "<group>"; };
 		ED64121317C2EF640039C81A /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		ED64121517C2EF710039C81A /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		ED69568417CC580700E6FE37 /* RUUBackendScrapingCardapioTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RUUBackendScrapingCardapioTask.h; sourceTree = "<group>"; };
+		ED69568517CC580700E6FE37 /* RUUBackendScrapingCardapioTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RUUBackendScrapingCardapioTask.m; sourceTree = "<group>"; };
 		EDA71BD017BE92DA007392B4 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		EDBBB2A017C2EAF80008BD32 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = icon/ios/Icon.png; sourceTree = "<group>"; };
 		EDBBB2A117C2EAF80008BD32 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "icon/ios/Icon@2x.png"; sourceTree = "<group>"; };
@@ -100,7 +103,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EDC00B8617BB018D0048740F = {
+		ED69568717CC594600E6FE37 /* Icones */ = {
 			isa = PBXGroup;
 			children = (
 				ED64121517C2EF710039C81A /* Icon@2x.png */,
@@ -115,6 +118,43 @@
 				ED1C080017BF06EC00356916 /* Icon-120@2x.png */,
 				ED1C07FA17BF06BB00356916 /* Icon-Small.png */,
 				ED1C07FB17BF06BB00356916 /* Icon-Small@2x.png */,
+			);
+			name = Icones;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		ED69568817CC595100E6FE37 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EDC00BB017BB018D0048740F /* RUUViewController.h */,
+				EDC00BB117BB018D0048740F /* RUUViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		ED69568917CC595E00E6FE37 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				ED69568417CC580700E6FE37 /* RUUBackendScrapingCardapioTask.h */,
+				ED69568517CC580700E6FE37 /* RUUBackendScrapingCardapioTask.m */,
+				EDC00BC417BB29E40048740F /* RUUScrapingCardapioTask.h */,
+				EDC00BC517BB29E40048740F /* RUUScrapingCardapioTask.m */,
+			);
+			name = Task;
+			sourceTree = "<group>";
+		};
+		ED69568A17CC596700E6FE37 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EDC00BB817BB01B70048740F /* RUUCardapio.h */,
+				EDC00BB917BB01B70048740F /* RUUCardapio.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		EDC00B8617BB018D0048740F = {
+			isa = PBXGroup;
+			children = (
 				EDC00B9817BB018D0048740F /* RU UFMT */,
 				EDC00B9117BB018D0048740F /* Frameworks */,
 				EDC00B9017BB018D0048740F /* Products */,
@@ -148,17 +188,15 @@
 		EDC00B9817BB018D0048740F /* RU UFMT */ = {
 			isa = PBXGroup;
 			children = (
+				ED69568717CC594600E6FE37 /* Icones */,
 				ED4BECB717C2EA0100E8ADD2 /* RU UFMT.entitlements */,
 				EDC00BA117BB018D0048740F /* RUUAppDelegate.h */,
 				EDC00BA217BB018D0048740F /* RUUAppDelegate.m */,
 				EDC00BAA17BB018D0048740F /* MainStoryboard_iPhone.storyboard */,
 				EDC00BAD17BB018D0048740F /* MainStoryboard_iPad.storyboard */,
-				EDC00BB017BB018D0048740F /* RUUViewController.h */,
-				EDC00BB117BB018D0048740F /* RUUViewController.m */,
-				EDC00BC417BB29E40048740F /* RUUScrapingCardapioTask.h */,
-				EDC00BC517BB29E40048740F /* RUUScrapingCardapioTask.m */,
-				EDC00BB817BB01B70048740F /* RUUCardapio.h */,
-				EDC00BB917BB01B70048740F /* RUUCardapio.m */,
+				ED69568817CC595100E6FE37 /* Controller */,
+				ED69568917CC595E00E6FE37 /* Task */,
+				ED69568A17CC596700E6FE37 /* Model */,
 				EDC00B9917BB018D0048740F /* Supporting Files */,
 			);
 			path = "RU UFMT";
@@ -303,6 +341,7 @@
 				EDC00BA317BB018D0048740F /* RUUAppDelegate.m in Sources */,
 				EDC00BB217BB018D0048740F /* RUUViewController.m in Sources */,
 				EDC00BC617BB29E40048740F /* RUUScrapingCardapioTask.m in Sources */,
+				ED69568617CC580700E6FE37 /* RUUBackendScrapingCardapioTask.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

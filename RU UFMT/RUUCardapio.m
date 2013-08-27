@@ -20,6 +20,17 @@
     return self;
 }
 
++ (RUUCardapio *) cardapioFromArrayOfDictionary: (NSArray *) dicts{
+    RUUCardapio *cardapio = [[RUUCardapio alloc] init];
+    for (NSDictionary *d in dicts) {
+        [d enumerateKeysAndObjectsUsingBlock:^(NSString *key,NSArray *value, BOOL *stop) {
+            if([value count] > 0)
+                [cardapio addSection:key withItens:value];
+        }];
+    }
+    return cardapio;
+}
+
 -(void)encodeWithCoder:(NSCoder *)aCoder{
     [aCoder encodeObject:sections forKey:@"sections"];
     [aCoder encodeObject:itens forKey:@"itens"];

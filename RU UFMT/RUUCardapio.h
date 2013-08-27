@@ -13,6 +13,7 @@
     NSMutableDictionary *itens;
 }
 
++ (RUUCardapio *) cardapioFromArrayOfDictionary: (NSDictionary *) dict;
 -(void) addSection:(NSString *) section withItens:(NSArray *) sectionItens;
 -(void) removeSection:(NSString *) section;
 -(NSInteger) sectionsCount;

@@ -25,6 +25,7 @@ typedef void (^CardapioScrapingFailedBlock)(NSError *error);
 
 -(void) setSuccesBlock:(void (^)(RUUCardapio *cardapioLunch,RUUCardapio *cardapioDinner,NSDate *date))success
              failure:(void (^)(NSError *error))failure;
+
 -(void)start;
 -(void)stop;
 

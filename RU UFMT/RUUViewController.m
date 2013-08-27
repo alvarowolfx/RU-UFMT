@@ -8,7 +8,7 @@
 
 #import "RUUViewController.h"
 #import "RUUCardapio.h"
-#import "RUUScrapingCardapioTask.h"
+#import "RUUBackendScrapingCardapioTask.h"
 #import <UITableView-NXEmptyView/UITableView+NXEmptyView.h>
 #import <FlatUIKit/UIToolbar+FlatUI.h>
 #import <FlatUIKit/UINavigationBar+FlatUI.h>
@@ -170,7 +170,7 @@
 
 -(void) refreshControlActivated{
     [self setUpdatingState];
-    RUUScrapingCardapioTask *task = [[RUUScrapingCardapioTask alloc] init];
+    RUUBackendScrapingCardapioTask *task = [[RUUBackendScrapingCardapioTask alloc] init];
     [task setSuccesBlock:^(RUUCardapio *cLunch,RUUCardapio *cDinner,NSDate *date){
         cardapioLunch = cLunch;
         cardapioDinner = cDinner;

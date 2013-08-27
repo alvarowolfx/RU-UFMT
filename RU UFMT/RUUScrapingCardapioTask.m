@@ -96,19 +96,34 @@
             NSString *section = nil;
             NSString *item = nil;
             for (TFHppleElement *td in [tr children]) {
-                TFHppleElement *p = td.firstChild;
+                //TFHppleElement *p = td.firstChild;
+                //TFHppleElement *p = [td.children lastObject];
+                if ([td.firstChild tagName] == nil) continue;
+                NSMutableString *ctn = [[NSMutableString alloc] init];
+                for (TFHppleElement *el in td.children) {
+                    TFHppleElement *p = el;
+                    if ([p tagName] == nil) continue;
+                    while(p.hasChildren){
+                        p = p.firstChild;
+                    }
+                    [ctn appendString:[p content]];
+                }
+                /*
                 if ([p tagName] == nil) continue;
                 cont++;
                 while(p.hasChildren){
                     p = p.firstChild;
                 }
+                */
+                cont++;
                 if(cont == 1){
-                    section = [p content];
+                    section = ctn;
                 }else{
-                    item = [p content];
+                    item = ctn;
                 }
 
             }
+            //NSLog(@"secao : %@ , item : %@ ",section,item );
             if([[section stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]){
                 continue;
             }
