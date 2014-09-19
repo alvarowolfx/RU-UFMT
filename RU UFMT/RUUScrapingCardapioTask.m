@@ -48,7 +48,7 @@
             NSString *searchedString = [element text];
             NSArray *matches = [regex matchesInString:searchedString options:0 range:NSMakeRange(0, [searchedString length])];
             if([matches count] > 0){
-                int idx = [searchedString rangeOfCharacterFromSet:[NSCharacterSet letterCharacterSet]].location;
+                NSInteger idx = [searchedString rangeOfCharacterFromSet:[NSCharacterSet letterCharacterSet]].location;
                 NSString* matchText = [searchedString substringWithRange:NSMakeRange(0, idx)];
                 NSDateFormatter *df = [[NSDateFormatter alloc] init];
                 [df setDateFormat:@"dd/MM/yy"];
@@ -67,9 +67,9 @@
             if([ufmtNodes count] >= 2){
                 c2 = [self_ cardapioFromTable:[ufmtNodes objectAtIndex:1]];
             }
-            if(self.successBlock != NULL){
+            if(self_.successBlock != NULL){
                 //NSLog(@" chamndo sucesso !!!");
-                self.successBlock(c1,c2,dateFromSite);
+                self_.successBlock(c1,c2,dateFromSite);
             }else{
                 //NSLog(@" sucesso não setado =/ ");
             }
@@ -79,8 +79,8 @@
         }
     }
     failure:^(AFHTTPRequestOperation *operation, NSError *error){
-        if(self.failedBlock != nil){
-            self.failedBlock(error);
+        if(self_.failedBlock != nil){
+            self_.failedBlock(error);
         }
      }];
     [operation start];

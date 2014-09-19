@@ -40,7 +40,7 @@
                                       NSDate *dateFromSite = nil;
                                       NSArray *matches = [regex matchesInString:data options:0 range:NSMakeRange(0, [data length])];
                                       if([matches count] > 0){
-                                          int idx = [data rangeOfCharacterFromSet:[NSCharacterSet letterCharacterSet]].location;
+                                          NSInteger idx = [data rangeOfCharacterFromSet:[NSCharacterSet letterCharacterSet]].location;
                                           NSString* matchText = [data substringWithRange:NSMakeRange(0, idx)];
                                           NSDateFormatter *df = [[NSDateFormatter alloc] init];
                                           [df setDateFormat:@"dd/MM/yy"];
@@ -50,9 +50,13 @@
                                       
                                       NSDictionary *cardapioAlmoco = [JSON valueForKey:@"almoco"];
                                       NSDictionary *cardapioJantar = [JSON valueForKey:@"jantar"];
+                                      //NSLog(@"JSON %@",JSON);
                                       
                                       RUUCardapio *c1 = [RUUCardapio cardapioFromArrayOfDictionary:cardapioAlmoco];
+                                      //NSLog(@"Secoes no almoco : %ld",[c1 sectionsCount]);
                                       RUUCardapio *c2 = [RUUCardapio cardapioFromArrayOfDictionary:cardapioJantar];
+                                      //NSLog(@"Secoes no jantar : %ld",[c2 sectionsCount]);
+                                      
                                       if(self.successBlock != NULL){
                                           //NSLog(@" chamndo sucesso !!!");
                                           self.successBlock(c1,c2,dateFromSite);

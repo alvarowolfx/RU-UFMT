@@ -8,6 +8,7 @@
 
 #import "RUUViewController.h"
 #import "RUUCardapio.h"
+#import "RUUTracker.h"
 #import "RUUBackendScrapingCardapioTask.h"
 #import <UITableView-NXEmptyView/UITableView+NXEmptyView.h>
 #import <FlatUIKit/UIToolbar+FlatUI.h>
@@ -49,7 +50,7 @@
     [cardapioDinner addSection:@"Sobremesa" withItens:@[@"Pudim"]];
     */     
     NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
-                                               [UIColor cloudsColor],UITextAttributeTextColor, nil];
+                                               [UIColor cloudsColor],NSForegroundColorAttributeName, nil];
     self.navigationController.navigationBar.titleTextAttributes = navbarTitleTextAttributes;
     [self.navigationController.navigationBar configureFlatNavigationBarWithColor:[UIColor peterRiverColor]];
     [self.navigationController.toolbar configureFlatToolbarWithColor:[UIColor peterRiverColor]];
@@ -76,6 +77,8 @@
     [self.refreshControl setTintColor:[UIColor peterRiverColor]];
     
     [self createAdBannerView];
+    
+    [RUUTracker sendCreateView:@"Cardapio View"];
     
 }
 -(UIView *) viewForEmptyTableWithText:(NSString *) text{
@@ -126,7 +129,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 30.0;
+    return 35.0;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 30.0;
@@ -173,7 +176,7 @@
     RUUBackendScrapingCardapioTask *task = [[RUUBackendScrapingCardapioTask alloc] init];
     [task setSuccesBlock:^(RUUCardapio *cLunch,RUUCardapio *cDinner,NSDate *date){
         cardapioLunch = cLunch;
-        cardapioDinner = cDinner;
+        cardapioDinner = cDinner;        
         
         lastDate = [NSDate new];
         cardapioDate = date;
@@ -262,7 +265,7 @@
 }
 
 - (IBAction)segControlOnChange:(UISegmentedControl *)sender {
-    int index = [sender selectedSegmentIndex];
+    NSInteger index = [sender selectedSegmentIndex];
     if(index == 0){
         actualCardapio = cardapioLunch;
     }else{
@@ -307,7 +310,7 @@
 }
 
 -(void)bannerViewDidLoadAd:(ADBannerView *)banner{
-    NSLog(@"Funcionou carregar o banner");
+    //NSLog(@"Funcionou carregar o banner");
     //if(!_adBannerViewIsVisible){
         [UIView beginAnimations:@"animateAdBannerOn" context:NULL];
         self.tableView.tableHeaderView = _adBannerView;
@@ -316,18 +319,13 @@
     //}
 }
 -(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
-    NSLog(@"Não funcionou carregar o banner");
+    //NSLog(@"Não funcionou carregar o banner");
     //if(!_adBannerViewIsVisible){
         [UIView beginAnimations:@"animateAdBannerOff" context:NULL];
         self.tableView.tableHeaderView = nil;
         [UIView commitAnimations];
     //    _adBannerViewIsVisible = NO;
     //}
-}
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

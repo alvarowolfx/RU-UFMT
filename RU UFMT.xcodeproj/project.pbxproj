@@ -38,6 +38,7 @@
 		EDC00BB217BB018D0048740F /* RUUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC00BB117BB018D0048740F /* RUUViewController.m */; };
 		EDC00BBB17BB02B60048740F /* RUUCardapio.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC00BB917BB01B70048740F /* RUUCardapio.m */; };
 		EDC00BC617BB29E40048740F /* RUUScrapingCardapioTask.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC00BC517BB29E40048740F /* RUUScrapingCardapioTask.m */; };
+		EDFA323019A7B1F200BF496A /* RUUTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFA322F19A7B1F200BF496A /* RUUTracker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,8 @@
 		EDC00BB917BB01B70048740F /* RUUCardapio.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RUUCardapio.m; sourceTree = "<group>"; };
 		EDC00BC417BB29E40048740F /* RUUScrapingCardapioTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RUUScrapingCardapioTask.h; sourceTree = "<group>"; };
 		EDC00BC517BB29E40048740F /* RUUScrapingCardapioTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RUUScrapingCardapioTask.m; sourceTree = "<group>"; };
+		EDFA322E19A7B1F200BF496A /* RUUTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RUUTracker.h; sourceTree = "<group>"; };
+		EDFA322F19A7B1F200BF496A /* RUUTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RUUTracker.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +195,7 @@
 				ED4BECB717C2EA0100E8ADD2 /* RU UFMT.entitlements */,
 				EDC00BA117BB018D0048740F /* RUUAppDelegate.h */,
 				EDC00BA217BB018D0048740F /* RUUAppDelegate.m */,
+				EDFA323119A7B1F600BF496A /* Model */,
 				EDC00BAA17BB018D0048740F /* MainStoryboard_iPhone.storyboard */,
 				EDC00BAD17BB018D0048740F /* MainStoryboard_iPad.storyboard */,
 				ED69568817CC595100E6FE37 /* Controller */,
@@ -214,6 +218,15 @@
 				EDC00BA817BB018D0048740F /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EDFA323119A7B1F600BF496A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EDFA322E19A7B1F200BF496A /* RUUTracker.h */,
+				EDFA322F19A7B1F200BF496A /* RUUTracker.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDC00BBB17BB02B60048740F /* RUUCardapio.m in Sources */,
+				EDFA323019A7B1F200BF496A /* RUUTracker.m in Sources */,
 				EDC00B9F17BB018D0048740F /* main.m in Sources */,
 				EDC00BA317BB018D0048740F /* RUUAppDelegate.m in Sources */,
 				EDC00BB217BB018D0048740F /* RUUViewController.m in Sources */,
@@ -442,6 +456,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RU UFMT/RU UFMT-Prefix.pch";
 				INFOPLIST_FILE = "RU UFMT/RU UFMT-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -457,6 +472,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RU UFMT/RU UFMT-Prefix.pch";
 				INFOPLIST_FILE = "RU UFMT/RU UFMT-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

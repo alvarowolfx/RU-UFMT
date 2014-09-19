@@ -24,8 +24,10 @@
     RUUCardapio *cardapio = [[RUUCardapio alloc] init];
     for (NSDictionary *d in dicts) {
         [d enumerateKeysAndObjectsUsingBlock:^(NSString *key,NSArray *value, BOOL *stop) {
-            if([value count] > 0)
+            if([value count] > 0){
                 [cardapio addSection:key withItens:value];
+                //NSLog(@" %@ -> %@",key,value);
+            }
         }];
     }
     return cardapio;
@@ -48,7 +50,7 @@
 
 -(void) addSection:(NSString *) section withItens:(NSArray *) sectionItens{
     
-    int index = [sections indexOfObject:section];
+    NSInteger index = [sections indexOfObject:section];
     if( index == NSNotFound){
         [sections addObject:section];
         [itens setValue:sectionItens forKey:section];
